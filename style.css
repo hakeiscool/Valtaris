@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    color: #eaeaea;
+    background: radial-gradient(circle at top, #0b0b0f, #000);
+    text-align: center;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.hero {
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    margin: 15px 0 30px;
+    color: #b30000;
+}
+
+.join-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(45deg, #b30000, #ff0000);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    box-shadow: 0 0 20px red;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.join-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px red;
+}
+
+section {
+    padding: 50px 20px;
+}
+
+.leaders p {
+    margin: 8px 0;
+}
+
+.lore blockquote {
+    margin: 20px auto;
+    max-width: 800px;
+    font-style: italic;
+    color: #ff4444;
+}
+
+.lore ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.lore li {
+    margin: 8px 0;
+}
+
+.offers p {
+    margin: 10px 0;
+}
+
+.minecraft {
+    background: rgba(255,0,0,0.08);
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+}
+
+.ip-box {
+    display: inline-flex;
+    align-items: center;
+    margin: 20px auto;
+    padding: 15px 25px;
+    background: #000;
+    border: 1px solid red;
+    border-radius: 10px;
+    gap: 15px;
+}
+
+.ip-box span {
+    font-size: 1.2rem;
+    color: #ff5555;
+}
+
+.ip-box button {
+    padding: 8px 15px;
+    background: red;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.ip-box button:hover {
+    background: darkred;
+}
+
+footer {
+    padding: 30px 20px;
+    font-size: 0.9rem;
+}
+
+footer a {
+    display: block;
+    margin-top: 10px;
+    color: red;
+    text-decoration: none;
+}
+.tagline {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    color: #ff4444;
+    opacity: 0.85;
+}
+
+.games {
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
