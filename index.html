@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valtaris — Throne of the Broken</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    min-height: 100vh;
+    color: #eee;
+    text-align: center;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at top left, rgba(255,40,40,0.25), transparent 45%),
+        radial-gradient(circle at bottom right, rgba(160,0,0,0.2), transparent 50%),
+        linear-gradient(135deg, #120000 0%, #1a0000 30%, #080000 65%, #000 100%);
+}
+
+/* ===== BACKGROUND FX ===== */
+.fx-grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,0,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,0,0,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.fx-scales {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 25% 25%, rgba(255,0,0,0.25) 10%, transparent 11%),
+        radial-gradient(circle at 75% 75%, rgba(255,0,0,0.25) 10%, transparent 11%);
+    background-size: 120px 120px;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: -1;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.mouse-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,0,0,0.25), transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+/* ===== CONTENT ===== */
+.hero {
+    padding: 90px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    margin-top: 15px;
+    color: #ff4444;
+    letter-spacing: 4px;
+    text-shadow: 0 0 12px red;
+}
+
+.tagline {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    opacity: 0.85;
+}
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 45px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+}
+
+.discord,
+.youtube {
+    background: linear-gradient(45deg, #aa0000, #ff3b3b);
+    box-shadow: 0 0 25px #ff4444;
+}
+
+.discord:hover,
+.youtube:hover {
+    box-shadow: 0 0 45px #ff4444;
+}
+
+section {
+    padding: 60px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.lore blockquote {
+    margin: 20px auto;
+    max-width: 850px;
+    font-style: italic;
+    color: #ff5555;
+}
+
+.lore ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.lore li {
+    margin: 8px 0;
+}
+
+/* ===== MINECRAFT SECTION ===== */
+.minecraft {
+    padding: 70px 20px;
+}
+
+.ip-box {
+    display: inline-flex;
+    gap: 15px;
+    align-items: center;
+    padding: 15px 25px;
+    background: #000;
+    border: 1px solid red;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.ip-box span {
+    color: #ff5555;
+    font-size: 1.2rem;
+}
+
+.ip-box button {
+    background: red;
+    border: none;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.ip-box button:hover {
+    background: darkred;
+}
+
+.credit {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+footer {
+    padding: 30px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+<div class="fx-grid"></div>
+<div class="fx-scales"></div>
+<div class="mouse-glow"></div>
+
+<header class="hero">
+    <h1>🌌 ＶＡＬＴＡＲＩＳ — THRONE OF THE BROKEN 🐲</h1>
+    <p class="subtitle">BORN FROM RUIN. RULED BY WILL.</p>
+    <p class="tagline">A WARFORGED MULTIGAMING REALM</p>
+
+    <div class="buttons">
+        <a href="https://discord.gg/yqm5cw6YWM" target="_blank" class="btn discord">
+            JOIN VALTARIS!
+        </a>
+        <a href="https://www.youtube.com/@hakeiscool" target="_blank" class="btn youtube">
+            VISIT HAKE'S YT
+        </a>
+    </div>
+</header>
+
+<section class="lore">
+    <blockquote>🔥 “VALTARIS IS NOT A COMMUNITY — IT’S A CRUCIBLE.”</blockquote>
+    <blockquote>🩸 “WHERE PRIDE IS ARMOR. RAGE IS FUEL. POWER IS LAW.”</blockquote>
+    <blockquote>⚔️ “EVERY GAME IS A BATTLEFIELD.”</blockquote>
+
+    <ul>
+        <li>🩸 Rage that refuses to die</li>
+        <li>🔥 Pride that cannot be crushed</li>
+        <li>⚔️ Strength forged through struggle</li>
+        <li>🌑 Ambition beyond games</li>
+    </ul>
+</section>
+
+<section class="minecraft">
+    <h2>⛏️ Minecraft Realm</h2>
+    <div class="ip-box">
+        <span id="ip">valtarismc.sdlf.fun</span>
+        <button onclick="copyIP()">COPY IP</button>
+    </div>
+    <div class="credit">Made by hake/hakeiscool</div>
+</section>
+
+<footer>
+    🌑 Valtaris isn’t a server — it’s a storm with a name.
+</footer>
+
+<script>
+/* Mouse glow */
+const glow = document.querySelector('.mouse-glow');
+document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+});
+
+/* Particles */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const particles = Array.from({ length: 90 }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2 + 0.5,
+    s: Math.random() * 0.4 + 0.1
+}));
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+        p.y -= p.s;
+        if (p.y < 0) {
+            p.y = canvas.height;
+            p.x = Math.random() * canvas.width;
+        }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,60,60,0.6)';
+        ctx.fill();
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+
+/* Copy IP */
+function copyIP() {
+    const ip = document.getElementById("ip").innerText;
+    navigator.clipboard.writeText(ip);
+    alert("Minecraft IP copied: " + ip);
+}
+</script>
+
+</body>
+</html>
